@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Werkspot Hacker News</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div id="app">
+    <h1>Werkspot Hacker News</h1>
+    <div id="items-list">
+    </div>
+    <div>
+        <div>
+        <div class="loader" id="spinner"/>
+        </div>
+            <button id="more-button">
+        More
+    </button>
+</div>
+
+<script src="main.js"></script>
+    <style>
+        .loader {
+            animation: spin 1s infinite linear;
+            border: solid 2vmin transparent;
+            /*To make it angular*/
+            border-radius: 50%;
+            border-right-color: #09f;
+            border-top-color: #09f;
+            box-sizing: border-box;
+            height: 10vmin;
+            left: calc(50% - 10vmin);
+            position: fixed;
+            top: calc(50% - 10vmin);
+            width: 10vmin;
+            z-index: 1;
+        }
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</body>
+</html>
