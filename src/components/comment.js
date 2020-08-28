@@ -1,7 +1,7 @@
-import { fetchStory } from "../services/api";
+import { fetchItem } from "../services/api";
 import { timeFormat } from "../utils/utils";
 
-const template = ({ by, kids, text, time }) => {
+function template({ by, kids, text, time }) {
   return `<div class="comment-header small-text">
 <span class="comment-by">${by}</span>
 <span class="comment-time">${timeFormat(time)}</span>
@@ -9,13 +9,13 @@ const template = ({ by, kids, text, time }) => {
 <div class="comment-text">${text}</div>
 ${kids ? `<a class="small-link comments">${kids.length} comments</a>` : ""}
 `;
-};
+}
 
 function fetchComments(kids) {
   const promises = [];
   kids.forEach((comment, index) => {
     const promise = new Promise(resolve => {
-      fetchStory(comment, resolve, index);
+      fetchItem(comment, resolve, index);
     });
     promises.push(promise);
   });
@@ -23,9 +23,9 @@ function fetchComments(kids) {
     resolves.forEach(event => renderComment(event));
   });
 }
-export const getComments = function(story) {
+export function getComments(story) {
   fetchComments(story.kids);
-};
+}
 
 function renderComment({ event }) {
   const comment = JSON.parse(

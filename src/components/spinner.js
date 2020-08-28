@@ -1,8 +1,8 @@
 const spinner = document.getElementById("spinner");
-export const stopSpinner = () => {
+export function stopSpinner() {
   spinner.style.display = "none";
-};
+}
 
-export const startSpinner = () => {
+export function startSpinner() {
   spinner.style.display = "block";
-};
+}

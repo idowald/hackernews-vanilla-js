@@ -1,10 +1,10 @@
 import { timeFormat } from "../utils/utils";
 import { getComments } from "./comment";
 
-const template = (
+function template(
   { by, descendants, id, kids, score, time, title, type, url },
   index
-) => {
+) {
   let urlObject = null;
   try {
     urlObject = new URL(url);
@@ -31,8 +31,16 @@ const template = (
               : ""
           }
   </div>`;
-};
-export const createStory = function(story, index) {
+}
+
+export function processStory({ event, index }) {
+  //i've added a bit safety, in case of XSS attack
+  const story = JSON.parse(event.currentTarget.response.replace(/<[^>]+>/g, ""));
+  const table = document.querySelector("#items-list");
+  table.appendChild(renderStory(story, index));
+}
+
+function renderStory(story, index) {
   const storyElement = document.createElement("div");
   storyElement.setAttribute("id", "item-" + story.id);
   storyElement.setAttribute("class", "story-row");
@@ -47,4 +55,4 @@ export const createStory = function(story, index) {
     const listener = comments[0].addEventListener("click", getCommentFromAPI);
   }
   return storyElement;
-};
+}
