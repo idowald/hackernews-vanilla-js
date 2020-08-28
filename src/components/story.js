@@ -34,14 +34,17 @@ const template = (
 };
 export const createStory = function(story, index) {
   const storyElement = document.createElement("div");
+  storyElement.setAttribute("id", "story-" + story.id);
   storyElement.setAttribute("class", "story-row");
   // TODO in real app use frameworks, avoid innerHTML
   storyElement.innerHTML = template(story, index);
   const comments = storyElement.getElementsByClassName("comments");
   if (comments.length) {
-    comments[0].addEventListener("click", () => {
+    const getCommentFromAPI = () => {
+      comments[0].removeEventListener("click", getCommentFromAPI);
       getComments(story);
-    });
+    };
+    const listener = comments[0].addEventListener("click", getCommentFromAPI);
   }
   return storyElement;
 };

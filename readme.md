@@ -1,3 +1,28 @@
+# Notes
+
+Super important!
+ 
+ - I was asked to do the assignment during the weekend, i didn't get any answers to my email.
+ 
+ - I was sure I am not allowed to use any js libraries, so that's why I couldn't use bootstrap css or js libraries.
+ 
+ - I saved some time with CSS so I put everything in one file, in real apps we will split it to files and bundle it.
+ 
+
+
+in the original website there is site section, where you can see all comments from the same site.
+for example: https://news.ycombinator.com/from?site=github.com
+
+
+I didn't do that part because I wanted to scope my work
+Also I won't be doing polls api because I could not find examples in their original website
+
+I'm using Slots, which isn't supported in old browsers ( available since Chrome 53, Opera 40, Safari 10, Firefox 59, and Edge 79.)
+
+https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots 
+
+
+
 # How to run?
 
 Because I'm using just vanilla js and simple webpack
@@ -47,26 +72,4 @@ Things I need to use:
 - collapse for comments
 - nice to have- typescript
 - Testing
-
-# Notes
-
-Super important!
- 
- I was asked to do the assignment during the weekend, i didn't get any answers to my email.
- 
- I was sure I am not allowed to use any js libraries, so that's why I couldn't use bootstrap css or js libraries.
- 
- 
-
-
-in the original website there is site section, where you can see all comments from the same site.
-for example: https://news.ycombinator.com/from?site=github.com
-
-
-I didn't do that part because I wanted to scope my work
-Also I won't be doing polls api because I could not find examples in their original website
-
-I'm using Slots, which isn't supported in old browsers ( available since Chrome 53, Opera 40, Safari 10, Firefox 59, and Edge 79.)
-
-https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots 
 

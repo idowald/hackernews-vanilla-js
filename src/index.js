@@ -27,7 +27,7 @@ function init() {
 }
 init();
 
-const tickSize = 10;
+const tickSize = 2;
 let firstIndex = 0;
 function fetchMoreStories() {
   startSpinner();
