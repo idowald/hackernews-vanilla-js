@@ -30,7 +30,8 @@ a{
     text-decoration: underline
 }
 .comment{
-    margin-left: 10px;
+    margin-top: 10px;
+    margin-left: 15px;
     margin-bottom: 10px;
 }
 .comment-header{

@@ -34,7 +34,7 @@ const template = (
 };
 export const createStory = function(story, index) {
   const storyElement = document.createElement("div");
-  storyElement.setAttribute("id", "story-" + story.id);
+  storyElement.setAttribute("id", "item-" + story.id);
   storyElement.setAttribute("class", "story-row");
   // TODO in real app use frameworks, avoid innerHTML
   storyElement.innerHTML = template(story, index);
@@ -48,40 +48,3 @@ export const createStory = function(story, index) {
   }
   return storyElement;
 };
-//
-// customElements.define(
-//   StoryWebComponent,
-//   class Story extends HTMLElement {
-//     constructor() {
-//       super();
-//     }
-//     connectedCallback() {
-//       // const by = this.getAttribute("by");
-//       // const descendants = this.getAttribute("descendants");
-//       // const id = this.getAttribute("id");
-//       // const kids = this.getAttribute("kids");
-//       // const score = this.getAttribute("score");
-//       // const time = this.getAttribute("time");
-//       // const title = this.getAttribute("title");
-//       // const type = this.getAttribute("type");
-//       // const url = this.getAttribute("url");
-//       // let shadowRoot = this.attachShadow({ mode: "open" });
-//       // // TODO Web security
-//       // shadowRoot.innerHTML = `
-
-//       //   `;
-//     }
-//   }
-// );
-
-// {
-//     "by" : "dhouston",
-//     "descendants" : 71,
-//     "id" : 8863,
-//     "kids" : [ 8952, 9224, 8917, 8884, 8887, 8943, 8869, 8958, 9005, 9671, 8940, 9067, 8908, 9055, 8865, 8881, 8872, 8873, 8955, 10403, 8903, 8928, 9125, 8998, 8901, 8902, 8907, 8894, 8878, 8870, 8980, 8934, 8876 ],
-//     "score" : 111,
-//     "time" : 1175714200,
-//     "title" : "My YC app: Dropbox - Throw away your USB drive",
-//     "type" : "story",
-//     "url" : "http://www.getdropbox.com/u/2/screencast.html"
-// }

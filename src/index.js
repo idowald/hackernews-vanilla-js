@@ -7,7 +7,7 @@ import { fetchStory, fetchTopStores } from "./services/api";
 
 function processStory({ event, index }) {
   //i've added a bit safety, in case of XSS attack
-  var story = JSON.parse(event.currentTarget.response.replace(/<[^>]+>/g, ''));
+  var story = JSON.parse(event.currentTarget.response.replace(/<[^>]+>/g, ""));
   var table = document.querySelector("#items-list");
   table.appendChild(createStory(story, index));
 }
@@ -16,7 +16,6 @@ let savedStoriesList = [];
 function processList(event) {
   savedStoriesList = JSON.parse(event.currentTarget.response);
   fetchMoreStories();
-  // storiesList.forEach(renderStory);
 }
 
 let moreButton;
@@ -48,7 +47,6 @@ function fetchMoreStories() {
     stopSpinner();
   });
   firstIndex += tickSize;
-  console.log(firstIndex + " " + savedStoriesList.length);
   if (firstIndex >= savedStoriesList.length) {
     moreButton.disabled = true;
     moreButton.innerText = "no more top stories";
