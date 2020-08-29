@@ -1,5 +1,5 @@
 import { timeFormat } from "../utils/utils";
-import { getComments } from "./comment";
+import { getCommentsFromStory } from "./comment";
 
 function template(
   { by, descendants, id, kids, score, time, title, type, url },
@@ -15,9 +15,9 @@ function template(
   <span class="rank">${index + 1}.</span>
   <a ${
     urlObject ? "href=" + urlObject.href : ""
-  } target="_blank">${title}</a> ${
+  } target="_blank" class="story-link">${title}</a> ${
     urlObject
-      ? `<a class="small-text small-link" target="_blank" href="https://${urlObject.hostname}">(${urlObject.hostname})</a>`
+      ? `<a class="small-link" target="_blank" href="https://${urlObject.hostname}">(${urlObject.hostname})</a>`
       : ""
   }
   </div>
@@ -30,29 +30,32 @@ function template(
               ? `| <a class="small-link comments">${descendants} comments</a>`
               : ""
           }
-  </div>`;
+  </div>
+<div class="comment-list"></div>`;
 }
 
 export function processStory({ event, index }) {
   //i've added a bit safety, in case of XSS attack
-  const story = JSON.parse(event.currentTarget.response.replace(/<[^>]+>/g, ""));
+  const story = JSON.parse(
+    event.currentTarget.response.replace(/<[^>]+>/g, "")
+  );
   const table = document.querySelector("#items-list");
   table.appendChild(renderStory(story, index));
 }
 
-function renderStory(story, index) {
+export function renderStory(story, index) {
   const storyElement = document.createElement("div");
   storyElement.setAttribute("id", "item-" + story.id);
   storyElement.setAttribute("class", "story-row");
-  // TODO in real app use frameworks, avoid innerHTML
+  // TODO in real app avoid innerHTML - might have xss attacks
   storyElement.innerHTML = template(story, index);
   const comments = storyElement.getElementsByClassName("comments");
   if (comments.length) {
     const getCommentFromAPI = () => {
       comments[0].removeEventListener("click", getCommentFromAPI);
-      getComments(story);
+      getCommentsFromStory(story);
     };
-    const listener = comments[0].addEventListener("click", getCommentFromAPI);
+    comments[0].addEventListener("click", getCommentFromAPI);
   }
   return storyElement;
 }

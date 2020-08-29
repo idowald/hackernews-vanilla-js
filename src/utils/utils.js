@@ -3,7 +3,7 @@ export const timeFormat = function(unixCodeDate) {
   return timeSince(date);
 };
 
-function timeSince(date) {
+export function timeSince(date) {
   const seconds = Math.floor((new Date() - date) / 1000);
 
   let interval = seconds / 31536000;

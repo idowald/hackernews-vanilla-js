@@ -1,8 +1,7 @@
 # Notes
 
 Super important!
- 
- - I was asked to do the assignment during the weekend, i didn't get any answers to my email.
+ - I didn't use web component, though it can be a better option for some cases.
  
  - I was sure I am not allowed to use any js libraries, so that's why I couldn't use bootstrap css or js libraries.
  
@@ -17,7 +16,6 @@ for example: https://news.ycombinator.com/from?site=github.com
 I didn't do that part because I wanted to scope my work
 Also I won't be doing polls api because I could not find examples in their original website
 
-I'm using Slots, which isn't supported in old browsers ( available since Chrome 53, Opera 40, Safari 10, Firefox 59, and Edge 79.)
 
 https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots 
 
@@ -39,6 +37,8 @@ To test
 - `npm install`
 - `npm test`
 
+# Would be nice to add
+when click comments, to scroll a bit down
 
 
 # Welcome
