@@ -12,14 +12,16 @@ function template(
     console.log("bad url");
   }
   return `<div class="title">
+<div style="display: flex;">
   <span class="rank">${index + 1}.</span>
   <a ${
     urlObject ? "href=" + urlObject.href : ""
-  } target="_blank" class="story-link">${title}</a> ${
-    urlObject
-      ? `<a class="small-link" target="_blank" href="https://${urlObject.hostname}">(${urlObject.hostname})</a>`
-      : ""
-  }
+  } target="_blank" class="story-link">${title}</a></div> 
+${
+  urlObject
+    ? `<a class="small-link" target="_blank" href="https://${urlObject.hostname}">(${urlObject.hostname})</a>`
+    : ""
+}
   </div>
           <div class="container-substory small-text">
           <div class="score">${score} points</div>

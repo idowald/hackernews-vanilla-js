@@ -47,8 +47,12 @@ a {
   display: flex;
   align-items: center;
   font-size: 10pt;
+  flex-wrap: wrap;
 }
-.story-link{
+.rank {
+  font-size: 12pt;
+}
+.story-link {
   font-weight: 600;
 }
 .comment {
