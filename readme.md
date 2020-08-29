@@ -2,10 +2,8 @@
 
 Super important!
  - I didn't use web component, though it can be a better option for some cases.
- 
- - I was sure I am not allowed to use any js libraries, so that's why I couldn't use bootstrap css or js libraries.
- 
- - I saved some time with CSS so I put everything in one file, in real apps we will split it to files and bundle it.
+
+ - I saved some time with CSS so I put everything in one file.
  
 
 
@@ -63,13 +61,4 @@ Please don't spend more than 4 hours on this project. If you feel it would take 
 
 Feel free to ask us any questions and have fun!
 
-
-# Solution
-Things I need to use:
-- stylesheets
-- virtual table - too complicated in 4 hours to build from scratch
-- pagination
-- collapse for comments
-- nice to have- typescript
-- Testing
 
