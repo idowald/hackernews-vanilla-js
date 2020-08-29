@@ -8,19 +8,19 @@ import { processStory } from "./components/story";
 let savedStoriesList = [];
 function processList(event) {
   savedStoriesList = JSON.parse(event.currentTarget.response);
-  fetchMoreStories();
+  fetchMoreStories(false);
 }
 
 let moreButton;
 (function init() {
   fetchTopStores(processList);
   moreButton = document.getElementById("more-button");
-  moreButton.addEventListener("click", fetchMoreStories);
+  moreButton.addEventListener("click", () => fetchMoreStories(true));
 })();
 
 const tickSize = 15;
 let firstIndex = 0;
-function fetchMoreStories() {
+function fetchMoreStories(scroll = false) {
   startSpinner();
   const callbacks = [];
   for (
@@ -37,6 +37,9 @@ function fetchMoreStories() {
   Promise.all(callbacks).then(stories => {
     stories.forEach(processStory);
     stopSpinner();
+    if (scroll) {
+      window.scrollTo(0, document.body.scrollHeight);
+    }
   });
   firstIndex += tickSize;
   if (firstIndex >= savedStoriesList.length) {
